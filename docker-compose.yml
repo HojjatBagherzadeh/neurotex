@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  service_llm:
+    build: ./service_llm
+    environment:
+      - LLM_PROVIDER=openai
+      - LOCAL_MODEL_NAME=Qwen/Qwen1.5-1.8B-Chat
+      - OPENAI_API_KEY=yourapikey
+      - DEEPSEEK_API_URL=https://api.deepseek.com
+      - Deepseek_API_KEY=yourapikey
+    ports:
+      - "8000:8000"
+
+  service_code_analysis:
+    build: ./service_code_analysis
+    environment:
+      - LLM_SERVICE_URL=http://service_llm:8000
+    ports:
+      - "8001:8001"
+    depends_on:
+      - service_llm
