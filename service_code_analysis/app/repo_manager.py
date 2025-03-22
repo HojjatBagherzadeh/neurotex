@@ -21,7 +21,9 @@ def download_repo(job_id: str):
     repo_path = job["repo_path"]
     try:
         subprocess.run(["git", "clone", repo_url, repo_path], check=True)
+        print('status = completed')
         job["status"] = "completed"
     except Exception as e:
+        print('status = failed', str(e))
         job["status"] = "failed"
         job["error"] = str(e)

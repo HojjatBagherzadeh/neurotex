@@ -10,12 +10,15 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = { version = "^0.100.0", allow-prereleases = true }
-uvicorn = "^0.22.0"
+uvicorn = "^0.34.0"
 pydantic = "^2.0.0"
-openai = "^0.27.0"
-transformers = "^4.30.0"
-torch = "^2.0.0"
-nox = "^2023.10.10"
+openai = "^1.68.0"
+transformers = "^4.50.0"
+torch = {url = "https://download.pytorch.org/whl/cpu/torch-2.6.0%2Bcpu-cp312-cp312-linux_x86_64.whl"}
+
+
+nox = "^2024.2.0"
+
 
 [build-system]
 requires = ["poetry-core"]

@@ -3,7 +3,7 @@ services:
   service_llm:
     build: ./service_llm
     environment:
-      - LLM_PROVIDER=openai
+      - LLM_PROVIDER=local
       - LOCAL_MODEL_NAME=Qwen/Qwen1.5-1.8B-Chat
       - OPENAI_API_KEY=yourapikey
       - DEEPSEEK_API_URL=https://api.deepseek.com

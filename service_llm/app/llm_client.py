@@ -16,7 +16,7 @@ def load_local_llm(model_name: str):
         print(f"Loading local model: {model_name}")
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForCausalLM.from_pretrained(model_name)
-        local_llm_pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer)
+        local_llm_pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer, device=-1)
     return local_llm_pipeline
 
 
